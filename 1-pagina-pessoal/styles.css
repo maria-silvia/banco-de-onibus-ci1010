@@ -1,0 +1,93 @@
+html,
+body {
+    margin: 0px;
+    font-family: 'EB Garamond', serif;
+    letter-spacing: 2px;
+}
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #edd5db;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar h1 {
+    margin-left: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #07071c;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    background-color: rgb(239, 148, 148);
+    color: white;
+    font-weight: bold;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    main {
+        margin-left: 0;
+    }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+/* ------------- END SIDEBAR STYLING */
+
+/* ------------- BEGIN MAIN STYLING */
+main {
+    margin-left: 200px;
+    padding: 10px 30px;
+    height: 1000px;
+    max-width: 700px;
+}
+main h1 {
+    text-align: center;
+}
+p {
+    max-width: 75ch;
+}
+
+.mosaic {
+    display: grid;
+    grid-row: span 2 / auto;
+    grid-column: span 2 / auto
+}
+
+.mosaic img {
+    max-width: 20vw;
+    object-fit: scale-down;
+}
