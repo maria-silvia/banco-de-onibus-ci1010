@@ -11,7 +11,7 @@ lista_linhas =
    {:nome => "Fazendinha", :codigo => "654", :cor => "amarelo"        },
    {:nome => "Ahú / Los Angeles", :codigo => "543", :cor => "amarelo"     },
    {:nome => "Sta Candida / Capão Raso", :codigo => "543", :cor => "vermelho"       },
-   {:nome => "Interbairros I", :codigo => "531", :cor => "verde"        },
+   {:nome => "Interbairros III", :codigo => "531", :cor => "verde"        },
    {:nome => "Fanny", :codigo => "045", :cor => "amarelo"     },
    {:nome => "Portão", :codigo => "001", :cor => "amarelo"          },
    {:nome => "Vila Rex", :codigo => "079", :cor => "amarelo"          },

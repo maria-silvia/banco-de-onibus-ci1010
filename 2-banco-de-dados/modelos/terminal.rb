@@ -5,5 +5,6 @@ ActiveRecord::Base.establish_connection :adapter => "sqlite3",
 
 class Terminal < ActiveRecord::Base; 
     belongs_to :endereco
+    has_and_belongs_to_many :linhas, -> { distinct }
 end
 

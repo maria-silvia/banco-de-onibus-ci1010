@@ -11,9 +11,9 @@ echo "Ok"
 echo -n "criaLinhas ..."
 ruby criacao/criaLinhas.rb
 echo "Ok"
-# echo -n "criaLinhaTerminal ..."
-# ruby criacao/criaLinhaTerminal.rb
-# echo "Ok"
+echo -n "criaLinhasTerminals ..."
+ruby criacao/criaLinhasTerminals.rb
+echo "Ok"
 
 echo -n "populaTerminalsE ..."
 ruby criacao/populaTerminalsE.rb
@@ -24,6 +24,6 @@ echo "Ok"
 echo -n "populaLinhas ..."
 ruby criacao/populaLinhas.rb
 echo "Ok"
-# echo -n "populaLinhaTerminal ..."
-# ruby criacao/populaLinhaTerminal.rb
-# echo "Ok"
+echo -n "populaLinhasTerminals ..."
+ruby criacao/populaLinhasTerminals.rb
+echo "Ok"

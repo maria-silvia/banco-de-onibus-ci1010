@@ -13,10 +13,8 @@ class LinhaValidator < ActiveModel::Validator
 end
 
 class Linha < ActiveRecord::Base; 
-
     belongs_to :tipo
-
+    has_and_belongs_to_many :terminals, -> { distinct }
     validates_with LinhaValidator
-
 end
 

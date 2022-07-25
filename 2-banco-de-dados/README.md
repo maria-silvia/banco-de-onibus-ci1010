@@ -20,22 +20,19 @@ Criar e popular o banco de dados:
 
 ## Relações
 
-#### um para um
+**1:1** Terminal e Endereço
 
-Terminal e Endereço.
-Cada Terminal tem um endereço único dele.
+> Cada Terminal tem um endereço único dele.
 
-#### um para muitos
+**1:N** Linha e Tipo
 
-Linha e Tipo.
-Um tipo tem várias linhas.
-Uma linha tem um tipo.
+> Um tipo tem várias linhas.
+> Uma linha tem um tipo.
 
-#### muitos para muitos
+**N:N** Linhas e Terminais
 
-Linhas e Terminais.
-Uma linha passa em um ou mais terminais.
-Um terminal tem uma ou mais linhas passando nele.
+> Uma linha passa em um ou mais terminais.
+> Um terminal tem uma ou mais linhas passando nele.
 
 # to do
 
