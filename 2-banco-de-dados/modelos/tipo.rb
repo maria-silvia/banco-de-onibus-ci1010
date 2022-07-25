@@ -5,6 +5,6 @@ ActiveRecord::Base.establish_connection :adapter => "sqlite3",
 
 
 class Tipo < ActiveRecord::Base; 
-    # attr_accessible :nome, :codigo
+    has_many :linhas
 end
 
