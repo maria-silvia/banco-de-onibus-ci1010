@@ -28,8 +28,8 @@ Cada Terminal tem um endereço único dele.
 #### um para muitos
 
 Linha e Tipo.
-Uma categoria tem várias linhas.
-Uma linha tem uma categoria.
+Um tipo tem várias linhas.
+Uma linha tem um tipo.
 
 #### muitos para muitos
 
