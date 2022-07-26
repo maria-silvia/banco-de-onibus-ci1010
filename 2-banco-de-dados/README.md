@@ -3,13 +3,30 @@
 - ruby 3.0.0p0
 - activerecord
 - sqlite3
+- thor
 
 ## Como executar
 
-Criar e popular o banco de dados:
-´´´
+Crie e popule o banco de dados:
+
+```
 ./criaTudo.sh
-´´´
+```
+
+Rode bd.rb para ver os comandos disponíveis:
+
+```
+ruby bd.rb
+```
+
+Cada comando deve ser rodado com `ruby ./bd.rb` na frente.
+
+Exemplos de comandos:
+
+```
+ruby bd.rb lista linhas
+
+```
 
 ## Entidades
 
@@ -33,21 +50,3 @@ Criar e popular o banco de dados:
 
 > Uma linha passa em um ou mais terminais.
 > Um terminal tem uma ou mais linhas passando nele.
-
-# to do
-
-lista linhas
-lista linhas id=1
-lista linha nome="Solitude"
-lista linha codigo="023"
-
-lista tipos
-lista tipo ...
-
-lista terminais
-....
-
-lista enderecos...
-
-> para excluir deve-se usar a id
-> exclusao <tabela> id=
