@@ -4,17 +4,14 @@ $:.push 'modelos/'
 require 'linha.rb'
 require 'tipo.rb'
 
-def listaLinhas(nome = nil, codigo=nil)
-    if codigo
-        lin = Linha.find_by_codigo(codigo)
-        imprimeLinha lin if lin
-    end
-    if nome
-        lin = Linha.find_by_nome(nome)
-        imprimeLinha lin if lin
-    end
-    if !codigo && !nome
+def listaLinhas(atributos)
+    if atributos.empty?()
         listaTodasLinhas
+    else
+        lin = Linha.where(atributos)
+        lin.each do |l|
+            imprimeLinha l
+        end
     end
 end
 
