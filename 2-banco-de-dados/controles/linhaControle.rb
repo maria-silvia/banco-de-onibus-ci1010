@@ -22,8 +22,7 @@ end
 
 def listaTodasLinhas
     puts "Listando todas as Linhas de Ônibus:"
-    lin = Linha.all
-    lin.each do |l|
+    Linha.all.each do |l|
         imprimeLinha l
     end
 end
