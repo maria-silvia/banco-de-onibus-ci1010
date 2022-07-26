@@ -25,6 +25,7 @@ Exemplos de comandos:
 
 ```
 ruby bd.rb lista linhas
+ruby bd.rb lista linhas --codigo="023"
 
 ```
 

@@ -4,6 +4,19 @@ $:.push 'modelos/'
 require 'linha.rb'
 require 'tipo.rb'
 
+def listaLinhas(nome = nil, codigo=nil)
+    if codigo
+        lin = Linha.find_by_codigo(codigo)
+        imprimeLinha lin if lin
+    end
+    if nome
+        lin = Linha.find_by_nome(nome)
+        imprimeLinha lin if lin
+    end
+    if !codigo && !nome
+        listaTodasLinhas
+    end
+end
 
 def imprimeLinha(lin)
     tipo = Tipo.find(lin.tipo_id)

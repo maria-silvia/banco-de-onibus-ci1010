@@ -3,11 +3,13 @@ require './controles/linhaControle.rb'
 
 class BancoDeDadosCLI  < Thor
 
-    desc "lista TABELA", "lista <tabela>"
+    desc "lista TABELA", "lista <tabela> { --atributo=valor }"
+    option :nome
+    option :codigo
     def lista(tabela)
         case tabela 
             when 'linhas'
-                listaTodasLinhas
+                listaLinhas options[:nome], options[:codigo]
             when 'tipos'
             when 'terminais'
             when 'enderecos'
