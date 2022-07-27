@@ -9,7 +9,8 @@ class BancoDeDadosCLI  < Thor
     class_option :nome
     class_option :codigo
     class_option :id
-    class_option :tipo
+    class_option :tipo_cor
+    class_option :tipo_nome
     class_option :cor
     class_option :endereco
     class_option :rua
@@ -31,23 +32,22 @@ class BancoDeDadosCLI  < Thor
             when 'linhas_terminals'
                 listaLinhasTerminals options
         end
-
         puts " "
     end
 
-    # desc "inclusao TABELA", "inclusao <tabela> { --atributo=valor }"
-    # def lista(tabela)
-        
-    #     case tabela 
-    #         when 'linhas'
-    #             # incluiLinha options
-    #         when 'tipos'
-    #             # incluiTipo options
-    #         when 'terminals'
-    #         when 'enderecos'
-    #         when 'linhas_terminals'
-    #     end
-    # end
+    desc "inclusao TABELA", "inclusao <tabela> { --atributo=valor }"
+    def inclusao(tabela)
+        case tabela 
+            when 'linhas'
+                incluiLinha options
+            when 'tipos'
+                # incluiTipo options
+            when 'terminals'
+            when 'enderecos'
+            when 'linhas_terminals'
+        end
+        puts " "
+    end
 
 end
 

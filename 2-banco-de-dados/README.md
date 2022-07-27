@@ -26,17 +26,19 @@ OPERAÇÕES:
 - exclusao
 - lista
 
-| TABELAS          | ATRIBUTOS POR TABELA |
-| ---------------- | -------------------- |
-| linhas           | nome codigo tipo     |
-| tipos            | nome cor             |
-| terminals        | nome endereco        |
-| enderecos        | rua numero           |
-| linhas_terminals | linha terminal       |
+| TABELAS          | ATRIBUTOS POR TABELA           |
+| ---------------- | ------------------------------ |
+| linhas           | nome codigo tipo_nome tipo_cor |
+| tipos            | nome cor                       |
+| terminals        | nome endereco                  |
+| enderecos        | rua numero                     |
+| linhas_terminals | linha terminal                 |
 
 ### Exemplos de comandos:
 
 ```
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"
+
 ruby bd.rb lista linhas
 ruby bd.rb lista tipos --cor="amarelo"
 ruby bd.rb lista terminals --nome="Boa Vista"

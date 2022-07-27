@@ -26,10 +26,11 @@ ruby bd.rb lista terminals --endereco="300"
 
 ruby bd.rb lista enderecos
 
-ruby bd.rb lista linhas_terminals
-ruby bd.rb lista linhas_terminals --terminal="2"
-ruby bd.rb lista linhas_terminals --linha="3"
-ruby bd.rb lista linhas_terminals --linha="5" --terminal="2"
-ruby bd.rb lista linhas_terminals --linha="1" --terminal="4"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_nome="Convencional"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo" --tipo_nome="Convencional"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_nome="mini"
+ruby bd.rb inclusao linhas --codigo="231"
+ruby bd.rb inclusao linhas --nome="Teste"
 
 set +x
