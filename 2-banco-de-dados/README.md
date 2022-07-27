@@ -32,7 +32,7 @@ OPERAÇÕES:
 | tipos            | nome cor             |
 | terminals        | nome endereco        |
 | enderecos        | rua numero           |
-| linhas_terminals | linhas terminals     |
+| linhas_terminals | linha terminal       |
 
 ### Exemplos de comandos:
 
@@ -40,6 +40,8 @@ OPERAÇÕES:
 ruby bd.rb lista linhas
 ruby bd.rb lista tipos --cor="amarelo"
 ruby bd.rb lista terminals --nome="Boa Vista"
+ruby bd.rb lista linhas_terminals --terminal="2"
+ruby bd.rb lista linhas_terminals --linha="3"
 
 ```
 

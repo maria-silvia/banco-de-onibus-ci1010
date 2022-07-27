@@ -9,7 +9,7 @@ end
 # -------------------- LISTA ---------------------
 def listaTerminals(atributos)
     if atributos.empty?()
-        listaTodos
+        listaTodosTerminals
     else
         ende = Terminal.where(atributos)
         ende.each do |t|
@@ -17,7 +17,7 @@ def listaTerminals(atributos)
         end
     end
 end
-def listaTodos
+def listaTodosTerminals
     puts "Listando todos os Terminais de Ônibus:"
     Terminal.all.each do |t|
         imprimeTerminalE t

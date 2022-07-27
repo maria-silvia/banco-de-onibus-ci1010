@@ -3,6 +3,7 @@ require './controles/linhaControle.rb'
 require './controles/tipoControle.rb'
 require './controles/terminalControle.rb'
 require './controles/enderecoControle.rb'
+require './controles/linhaTerminalControle.rb'
 
 class BancoDeDadosCLI  < Thor
     class_option :nome
@@ -13,6 +14,8 @@ class BancoDeDadosCLI  < Thor
     class_option :endereco
     class_option :rua
     class_option :numero
+    class_option :linha
+    class_option :terminal
 
     desc "lista TABELA", "lista <tabela> { --atributo=valor }"
     def lista(tabela) 
@@ -26,6 +29,7 @@ class BancoDeDadosCLI  < Thor
             when 'enderecos'
                 listaEnderecos options
             when 'linhas_terminals'
+                listaLinhasTerminals options
         end
 
         puts " "

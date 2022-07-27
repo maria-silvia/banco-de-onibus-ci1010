@@ -9,7 +9,7 @@ end
 # -------------------- LISTA ---------------------
 def listaEnderecos(atributos)
     if atributos.empty?()
-        listaTodos
+        listaTodosEnderecos
     else
         e = Endereco.where(atributos)
         e.each do |t|
@@ -17,7 +17,7 @@ def listaEnderecos(atributos)
         end
     end
 end
-def listaTodos
+def listaTodosEnderecos
     puts "Listando todos os enderecos de Terminais:"
     Endereco.all.each do |t|
         imprimeEndereco t
