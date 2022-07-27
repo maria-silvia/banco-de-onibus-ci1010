@@ -4,6 +4,13 @@ $:.push 'modelos/'
 require 'linha.rb'
 require 'tipo.rb'
 
+def imprimeTipo(tipo)
+    puts "#{tipo.id} - #{tipo.nome} (#{tipo.cor})"
+    tipo.linhas.each do |l|
+        puts "    #{l.codigo} #{l.nome}"
+    end
+end
+
 def listaTipos(atributos)
     if atributos.empty?()
         listaTodos
@@ -14,22 +21,15 @@ def listaTipos(atributos)
         end
     end
 end
-
-def imprimeTipo(tipo)
-    puts "#{tipo.id} - #{tipo.nome} (#{tipo.cor})"
-    tipo.linhas.each do |l|
-        puts "    #{l.codigo} #{l.nome}"
+def listaTodos
+    puts "Listando todas os tipos de Ônibus:"
+    Tipo.all.each do |t|
+        imprimeTipo t
     end
 end
+
+
 
 # def deleta
 #     # deleta todas as linhas com o tipo
 # end
-
-def listaTodos
-    puts "Listando todas os tipos de Ônibus:"
-    tip = Tipo.all
-    tip.each do |t|
-        imprimeTipo t
-    end
-end
