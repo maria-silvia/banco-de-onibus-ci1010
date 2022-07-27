@@ -60,3 +60,20 @@ def incluiLinha(atributos)
     end
 end
 
+# -------------------- EXCLUSAO ---------------------
+def excluiLinha(atributos)
+    lin = buscaLinhas(atributos)
+    if !lin
+        puts "Registro não encontrado"
+        return
+    end
+    if lin.distinct.count > 1
+        puts "Há #{lin.distinct.count} registros com esses atributos"
+        return
+    end
+    lin = lin.first    
+    print "Deletando  "
+    imprimeLinha lin
+    lin.delete
+    puts "Linha deletada"
+end

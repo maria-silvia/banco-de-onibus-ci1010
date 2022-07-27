@@ -37,14 +37,17 @@ OPERAÇÕES:
 ### Exemplos de comandos:
 
 ```
-ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"
-
 ruby bd.rb lista linhas
-ruby bd.rb lista tipos --cor="amarelo"
 ruby bd.rb lista terminals --nome="Boa Vista"
+ruby bd.rb lista linhas --tipo_cor="amarelo"
+
 ruby bd.rb lista linhas_terminals --terminal="2"
 ruby bd.rb lista linhas_terminals --linha="3"
 
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"
+
+ruby bd.rb exclusao linhas --nome="Paineiras"
+ruby bd.rb exclusao linhas --tipo_cor="amarelo"
 ```
 
 ## Entidades

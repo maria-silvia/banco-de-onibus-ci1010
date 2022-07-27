@@ -41,7 +41,19 @@ class BancoDeDadosCLI  < Thor
             when 'linhas'
                 incluiLinha options
             when 'tipos'
-                # incluiTipo options
+            when 'terminals'
+            when 'enderecos'
+            when 'linhas_terminals'
+        end
+        puts " "
+    end
+
+    desc "exclusao TABELA", "exclusao <tabela> { --atributo=valor }"
+    def exclusao(tabela)
+        case tabela 
+            when 'linhas'
+                excluiLinha options
+            when 'tipos'
             when 'terminals'
             when 'enderecos'
             when 'linhas_terminals'
