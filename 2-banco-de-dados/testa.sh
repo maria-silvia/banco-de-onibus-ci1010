@@ -3,13 +3,10 @@
 # ./criaTudo.sh
 set -x
 ruby bd.rb lista linhas
-ruby bd.rb lista linhas --nome="Fanny"
-ruby bd.rb lista linhas --nome="Inter 2"
-ruby bd.rb lista linhas --nome="Inter 2" --codigo="231"
-ruby bd.rb lista linhas --nome="Solitude" --codigo="023"
-ruby bd.rb lista linhas --id="2"
-ruby bd.rb lista linhas --id="700"
-ruby bd.rb lista linhas --tipo="4"
+ruby bd.rb lista linhas --tipo_cor="amarelo"
+ruby bd.rb lista linhas --tipo_cor="branco"
+ruby bd.rb lista linhas --tipo_nome="Interbairros"
+ruby bd.rb lista linhas --tipo_nome="Interbairros" --nome="Fanny"
 
 # ruby bd.rb lista tipos
 # ruby bd.rb lista tipos --cor="vermelho"

@@ -8,13 +8,24 @@ def imprimeLinha(lin)
     puts "#{lin.id} #{lin.codigo} #{lin.nome} - #{lin.tipo.nome} (#{lin.tipo.cor})"
 end
 
+def buscaLinhas(atributos)
+    linhas = Linha.includes(:tipo).all
+    linhas = linhas.where(nome: atributos[:nome]) if atributos[:nome]
+    linhas = linhas.where(codigo: atributos[:codigo]) if atributos[:codigo]
+    linhas = linhas.where(id: atributos[:id]) if atributos[:id]
+
+    linhas = linhas.where(tipo: { nome: atributos[:tipo_nome]}) if atributos[:tipo_nome]
+    linhas = linhas.where(tipo: { cor: atributos[:tipo_cor]}) if atributos[:tipo_cor]
+    return linhas
+end
+
 # -------------------- LISTA ---------------------
 def listaLinhas(atributos)
     if atributos.empty?()
         listaTodasLinhas
     else
-        lin = Linha.where(atributos)
-        lin.each do |l|
+        linhas = buscaLinhas atributos
+        linhas.each do |l|
             imprimeLinha l
         end
     end
@@ -35,7 +46,6 @@ def incluiLinha(atributos)
     t = Tipo.all
     t = t.where(nome: atributos[:tipo_nome]) if atributos[:tipo_nome]
     t = t.where(cor: atributos[:tipo_cor]) if atributos[:tipo_cor]
-
     t = t.first
     if !t
         puts("Tipo não encontrado")
