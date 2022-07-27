@@ -48,6 +48,8 @@ ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo
 
 ruby bd.rb exclusao linhas --nome="Paineiras"
 ruby bd.rb exclusao linhas --tipo_cor="amarelo"
+
+ruby bd.rb exclusao tipos --cor="cinza"
 ```
 
 ## Entidades

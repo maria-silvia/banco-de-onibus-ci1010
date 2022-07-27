@@ -28,8 +28,20 @@ def listaTodos
     end
 end
 
-
-
-# def deleta
-#     # deleta todas as linhas com o tipo
-# end
+# -------------------- EXCLUSAO ---------------------
+def excluiTipo(atributos)
+    tip = Tipo.where(atributos)
+    if !tip
+        puts "Registro não encontrado"
+        return
+    end
+    if tip.distinct.count > 1
+        puts "Há #{tip.distinct.count} registros com esses atributos"
+        return
+    end
+    tip = tip.first    
+    print "Destruindo  "
+    imprimeTipo tip
+    tip.destroy
+    puts "Tipo destroido"
+end

@@ -46,6 +46,8 @@ ruby bd.rb exclusao linhas --nome="Paineiras"
 ruby bd.rb exclusao linhas --tipo_cor="amarelo"
 ruby bd.rb exclusao linhas --nome="Vila Rex"
 
+ruby bd.rb exclusao tipos --cor="cinza"
+
 # BUGA NAO SEI PQ
 ruby bd.rb exclusao linhas --codigo="244154"
 set +x

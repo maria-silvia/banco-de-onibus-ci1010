@@ -5,6 +5,6 @@ ActiveRecord::Base.establish_connection :adapter => "sqlite3",
 
 
 class Tipo < ActiveRecord::Base; 
-    has_many :linhas
+    has_many :linhas, :dependent => :destroy
 end
 

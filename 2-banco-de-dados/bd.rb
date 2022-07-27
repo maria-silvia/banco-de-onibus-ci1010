@@ -54,6 +54,7 @@ class BancoDeDadosCLI  < Thor
             when 'linhas'
                 excluiLinha options
             when 'tipos'
+                excluiTipo options
             when 'terminals'
             when 'enderecos'
             when 'linhas_terminals'
