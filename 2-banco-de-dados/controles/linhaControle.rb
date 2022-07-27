@@ -4,6 +4,11 @@ $:.push 'modelos/'
 require 'linha.rb'
 require 'tipo.rb'
 
+def imprimeLinha(lin)
+    puts "#{lin.id} #{lin.codigo} #{lin.nome} - #{lin.tipo.nome} (#{lin.tipo.cor})"
+end
+
+# -------------------- LISTA ---------------------
 def listaLinhas(atributos)
     if atributos.empty?()
         listaTodasLinhas
@@ -14,12 +19,6 @@ def listaLinhas(atributos)
         end
     end
 end
-
-def imprimeLinha(lin)
-    tipo = Tipo.find(lin.tipo_id)
-    puts "#{lin.codigo} #{lin.nome} - #{tipo.nome} (#{tipo.cor})"
-end
-
 def listaTodasLinhas
     puts "Listando todas as Linhas de Ônibus:"
     Linha.all.each do |l|

@@ -13,20 +13,34 @@ Crie e popule o banco de dados:
 ./criaTudo.sh
 ```
 
-Rode bd.rb para ver os comandos disponíveis:
+Cada comando deve ser rodado com `ruby ./bd.rb` na frente. Seguido da tabela e atributos, cada atributo como opcao do comando:
 
 ```
-ruby bd.rb
+<operação> <tabela> --atributo1="valor" --atributo2="valor"
 ```
 
-Cada comando deve ser rodado com `ruby ./bd.rb` na frente.
+OPERAÇÕES:
 
-Exemplos de comandos:
+- inclusao
+- alteracao
+- exclusao
+- lista
+
+| TABELAS          | ATRIBUTOS POR TABELA |
+| ---------------- | -------------------- |
+| linhas           | nome codigo tipo     |
+| tipos            | nome cor             |
+| terminals        | nome endereco        |
+| enderecos        | rua numero           |
+| linhas_terminals | linhas terminals     |
+
+### Exemplos de comandos:
 
 ```
 ruby bd.rb lista linhas
-ruby bd.rb lista linhas --codigo="023"
 ruby bd.rb lista tipos --cor="amarelo"
+ruby bd.rb lista terminals --nome="Boa Vista"
+
 ```
 
 ## Entidades

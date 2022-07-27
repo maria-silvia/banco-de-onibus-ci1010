@@ -1,26 +1,49 @@
 require 'thor'
 require './controles/linhaControle.rb'
 require './controles/tipoControle.rb'
+require './controles/terminalControle.rb'
+require './controles/enderecoControle.rb'
 
 class BancoDeDadosCLI  < Thor
+    class_option :nome
+    class_option :codigo
+    class_option :id
+    class_option :tipo
+    class_option :cor
+    class_option :endereco
+    class_option :rua
+    class_option :numero
 
     desc "lista TABELA", "lista <tabela> { --atributo=valor }"
-    option :nome
-    option :codigo
-    option :id
-    option :cor
-    def lista(tabela)
-        
+    def lista(tabela) 
         case tabela 
             when 'linhas'
                 listaLinhas options
             when 'tipos'
                 listaTipos options
-            when 'terminais'
+            when 'terminals'
+                listaTerminals options
             when 'enderecos'
+                listaEnderecos options
             when 'linhas_terminals'
         end
+
+        puts " "
     end
+
+    # desc "inclusao TABELA", "inclusao <tabela> { --atributo=valor }"
+    # def lista(tabela)
+        
+    #     case tabela 
+    #         when 'linhas'
+    #             # incluiLinha options
+    #         when 'tipos'
+    #             # incluiTipo options
+    #         when 'terminals'
+    #         when 'enderecos'
+    #         when 'linhas_terminals'
+    #     end
+    # end
 
 end
 

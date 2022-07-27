@@ -1,14 +1,25 @@
 $:.push 'modelos/'
 require 'terminal.rb'
-require 'enderecos.rb'
+require 'endereco.rb'
 
-def imprimeTerminalE(term)
-    puts "#{term.nome} (#{term.endereco.rua} #{term.endereco.numero})"
+def imprimeTerminalE(ende)
+    puts "#{ende.id} #{ende.nome} (#{ende.endereco.rua}, #{ende.endereco.numero})"
 end
 
-def listaTudo
-    term = Terminal.all
-    term.each do |t|
+# -------------------- LISTA ---------------------
+def listaTerminals(atributos)
+    if atributos.empty?()
+        listaTodos
+    else
+        ende = Terminal.where(atributos)
+        ende.each do |t|
+            imprimeTerminalE t
+        end
+    end
+end
+def listaTodos
+    puts "Listando todos os Terminais de Ônibus:"
+    Terminal.all.each do |t|
         imprimeTerminalE t
     end
 end
