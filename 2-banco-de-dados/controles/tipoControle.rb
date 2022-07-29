@@ -6,9 +6,6 @@ require 'tipo.rb'
 
 def imprimeTipo(tipo)
     puts "#{tipo.id} - #{tipo.nome} (#{tipo.cor})"
-    tipo.linhas.each do |l|
-        puts "    #{l.codigo} #{l.nome}"
-    end
 end
 
 def listaTipos(atributos)
