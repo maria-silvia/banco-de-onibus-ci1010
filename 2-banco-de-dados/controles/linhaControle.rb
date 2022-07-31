@@ -46,17 +46,23 @@ def incluiLinha(atributos)
     t = Tipo.all
     t = t.where(nome: atributos[:tipo_nome]) if atributos[:tipo_nome]
     t = t.where(cor: atributos[:tipo_cor]) if atributos[:tipo_cor]
-    t = t.first
-    if !t
+    if t.empty? 
         puts("Tipo não encontrado")
         return
     end
+    if t.many?
+        puts "Mais de um tipo encontrado com esses atributos"
+        return
+    end
+    t = t.first
     lin.tipo_id = t.id
     
     if lin.invalid?
         printErro lin
     else
         lin.save
+        puts("Registro criado com sucesso")
+        imprimeLinha lin
     end
 end
 
