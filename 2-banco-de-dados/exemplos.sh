@@ -14,12 +14,13 @@ ruby bd.rb lista linhas --tipo_cor="branco"
 ruby bd.rb lista linhas --tipo_nome="Interbairros"
 ruby bd.rb lista linhas --tipo_nome="Interbairros" --nome="Fanny"
 
+echo "====== INCLUSAO de TIPOS"
 ruby bd.rb lista tipos
 ruby bd.rb lista tipos --cor="vermelho"
 ruby bd.rb lista tipos --cor="dsads"
-ruby bd.rb lista tipos --cor="amarelo"
 ruby bd.rb lista tipos --nome="Convencional"
-ruby bd.rb lista tipos --nome="aaa"
+ruby bd.rb lista tipos --nome="Convencional" --cor="vermelho"
+ruby bd.rb lista tipos --rua="teste"
 
 ruby bd.rb lista terminals
 ruby bd.rb lista terminals --nome="Boa Vista"

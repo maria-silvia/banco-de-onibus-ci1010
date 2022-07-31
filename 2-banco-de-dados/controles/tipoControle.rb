@@ -8,19 +8,19 @@ def imprimeTipo(tipo)
     puts "#{tipo.id} - #{tipo.nome} (#{tipo.cor})"
 end
 
-def listaTipos(atributos)
-    if atributos.empty?()
-        listaTodos
-    else
-        tip = Tipo.where(atributos)
-        tip.each do |t|
-            imprimeTipo t
-        end
+def buscaTipo(atributos) 
+    t = Tipo.all
+    t = t.where(nome: atributos[:nome]) if atributos[:nome]
+    t = t.where(cor: atributos[:cor]) if atributos[:cor]
+    if t.empty? 
+        puts("Tipo não encontrado")
     end
+    return t
 end
-def listaTodos
-    puts "Listando todas os tipos de Ônibus:"
-    Tipo.all.each do |t|
+
+def listaTipos(atributos)
+    tip = buscaTipo(atributos)
+    tip.each do |t|
         imprimeTipo t
     end
 end
