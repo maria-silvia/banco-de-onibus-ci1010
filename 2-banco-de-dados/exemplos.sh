@@ -2,6 +2,7 @@
 
 ./criaTudo.sh
 set -x
+echo "====== LISTA de LINHAS"
 ruby bd.rb lista linhas
 ruby bd.rb lista linhas --nome="Fanny"
 ruby bd.rb lista linhas --nome="Inter 2"
@@ -9,12 +10,13 @@ ruby bd.rb lista linhas --nome="Inter 2" --codigo="231"
 ruby bd.rb lista linhas --nome="Solitude" --codigo="023"
 ruby bd.rb lista linhas --id="2"
 ruby bd.rb lista linhas --id="700"
+ruby bd.rb lista linhas --rua="testando"
 ruby bd.rb lista linhas --tipo_cor="amarelo"
 ruby bd.rb lista linhas --tipo_cor="branco"
 ruby bd.rb lista linhas --tipo_nome="Interbairros"
 ruby bd.rb lista linhas --tipo_nome="Interbairros" --nome="Fanny"
 
-echo "====== INCLUSAO de TIPOS"
+echo "====== LISTA de TIPOS"
 ruby bd.rb lista tipos
 ruby bd.rb lista tipos --cor="vermelho"
 ruby bd.rb lista tipos --cor="dsads"
@@ -47,9 +49,13 @@ ruby bd.rb inclusao linhas --codigo="2"
 ruby bd.rb inclusao linhas --tipo_cor="amarelo"
 ruby bd.rb lista linhas
 
-ruby bd.rb exclusao linhas --nome="Paineiras"
+echo "====== EXCLUSAO de LINHAS"
+ruby bd.rb exclusao linhas --nome="Solitude"
 ruby bd.rb exclusao linhas --tipo_cor="amarelo"
-ruby bd.rb exclusao linhas --nome="Vila Rex"
+ruby bd.rb exclusao linhas --nome="recolhe"
+ruby bd.rb exclusao linhas
+ruby bd.rb exclusao linhas --rua="test"
+ruby bd.rb lista linhas
 
 ruby bd.rb exclusao tipos --cor="cinza"
 

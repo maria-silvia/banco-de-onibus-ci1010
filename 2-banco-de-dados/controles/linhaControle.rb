@@ -8,33 +8,14 @@ def imprimeLinha(lin)
     puts "#{lin.id} #{lin.codigo} #{lin.nome} - #{lin.tipo.nome} (#{lin.tipo.cor})"
 end
 
-def buscaLinhas(atributos)
-    linhas = Linha.includes(:tipo).all
-    linhas = linhas.where(nome: atributos[:nome]) if atributos[:nome]
-    linhas = linhas.where(codigo: atributos[:codigo]) if atributos[:codigo]
-    linhas = linhas.where(id: atributos[:id]) if atributos[:id]
-
-    linhas = linhas.where(tipo: { nome: atributos[:tipo_nome]}) if atributos[:tipo_nome]
-    linhas = linhas.where(tipo: { cor: atributos[:tipo_cor]}) if atributos[:tipo_cor]
-    return linhas
-end
-
 # -------------------- LISTA ---------------------
 def listaLinhas(atributos)
-    if atributos.empty?()
-        listaTodasLinhas
-    else
-        linhas = buscaLinhas atributos
-        linhas.each do |l|
-            imprimeLinha l
-        end
-    end
-end
-def listaTodasLinhas
-    puts "Listando todas as Linhas de Ônibus:"
-    Linha.all.each do |l|
+    linhas = buscaLinhas atributos
+    linhas.each do |l|
         imprimeLinha l
     end
+    rescue => e
+        puts e.message
 end
 
 # -------------------- INCLUSAO ---------------------
@@ -52,14 +33,12 @@ def incluiLinha(atributos)
         puts e.message
         return
     end
-
     if t.many?
-        puts "Mais de um tipo encontrado com esses atributos"
+        puts "Erro: Mais de um tipo encontrado com esses atributos"
         return
     end
-    t = t.first
-    lin.tipo_id = t.id
-    
+
+    lin.tipo_id = t.first.id
     if lin.invalid?
         printErro lin
     else
@@ -71,18 +50,16 @@ end
 
 # -------------------- EXCLUSAO ---------------------
 def excluiLinha(atributos)
-    lin = buscaLinhas(atributos)
-    if !lin
-        puts "Registro não encontrado"
+    linhas = buscaLinhas(atributos)
+    if linhas.many?
+        puts "Erro: Há #{linhas.distinct.count} registros com esses atributos"
         return
     end
-    if lin.distinct.count > 1
-        puts "Há #{lin.distinct.count} registros com esses atributos"
-        return
-    end
-    lin = lin.first    
+    lin = linhas.first    
     print "Deletando  "
     imprimeLinha lin
     lin.delete
     puts "Linha deletada"
+    rescue => e
+        puts e.message
 end
