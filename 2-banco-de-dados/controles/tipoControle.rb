@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+require './utils.rb'
 $:.push 'modelos/'
 require 'linha.rb'
 require 'tipo.rb'
@@ -8,21 +9,13 @@ def imprimeTipo(tipo)
     puts "#{tipo.id} - #{tipo.nome} (#{tipo.cor})"
 end
 
-def buscaTipo(atributos) 
-    t = Tipo.all
-    t = t.where(nome: atributos[:nome]) if atributos[:nome]
-    t = t.where(cor: atributos[:cor]) if atributos[:cor]
-    if t.empty? 
-        puts("Tipo não encontrado")
-    end
-    return t
-end
-
 def listaTipos(atributos)
-    tip = buscaTipo(atributos)
-    tip.each do |t|
+    tipos = buscaTipo(atributos)
+    tipos.each do |t|
         imprimeTipo t
     end
+    rescue => e
+        puts e.message
 end
 
 # -------------------- EXCLUSAO ---------------------

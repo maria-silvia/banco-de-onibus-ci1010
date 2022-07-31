@@ -43,13 +43,16 @@ def incluiLinha(atributos)
     lin.nome = atributos[:nome]
     lin.codigo = atributos[:codigo]
     
-    t = Tipo.all
-    t = t.where(nome: atributos[:tipo_nome]) if atributos[:tipo_nome]
-    t = t.where(cor: atributos[:tipo_cor]) if atributos[:tipo_cor]
-    if t.empty? 
-        puts("Tipo não encontrado")
+    begin
+        t = buscaTipo({
+            :nome => atributos[:tipo_nome], 
+            :cor => atributos[:tipo_cor]
+        })
+    rescue => e
+        puts e.message
         return
     end
+
     if t.many?
         puts "Mais de um tipo encontrado com esses atributos"
         return

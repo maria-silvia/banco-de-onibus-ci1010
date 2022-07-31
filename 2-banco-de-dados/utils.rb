@@ -6,3 +6,13 @@ def printErro(obj)
         end
     end
 end
+
+def buscaTipo(atributos) 
+    t = Tipo.all
+    t = t.where(nome: atributos[:nome]) if atributos[:nome]
+    t = t.where(cor: atributos[:cor]) if atributos[:cor]
+    if t.empty? 
+        raise "Tipo não encontrado" 
+    end
+    return t
+end
