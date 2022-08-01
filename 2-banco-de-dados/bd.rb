@@ -9,7 +9,6 @@ class BancoDeDadosCLI  < Thor
     class_option :nome
     class_option :codigo
     class_option :id
-    class_option :tipo_cor
     class_option :tipo_nome
     class_option :cor
     class_option :endereco

@@ -33,7 +33,7 @@ def incluiLinha(atributos)
     begin
         t = buscaTipo({
             :nome => atributos[:tipo_nome], 
-            :cor => atributos[:tipo_cor]
+            :cor => atributos[:cor]
         })
     rescue => e
         puts e.message

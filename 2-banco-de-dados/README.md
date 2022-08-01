@@ -26,25 +26,23 @@ OPERAÇÕES:
 - exclusao
 - lista
 
-| TABELAS          | ATRIBUTOS POR TABELA           |
-| ---------------- | ------------------------------ |
-| linhas           | nome codigo tipo_nome tipo_cor |
-| tipos            | nome cor                       |
+| TABELAS          | ATRIBUTOS POR TABELA      |
+| ---------------- | ------------------------- |
+| linhas           | nome codigo tipo_nome cor |
+| tipos            | nome cor                  |
 | terminals        | nome rua numero           |
 | enderecos        | rua numero                |
-| linhas_terminals | linha terminal                 |
+| linhas_terminals | linha terminal            |
 
 ### Exemplos:
 
 ```
-ruby bd.rb lista linhas --tipo_cor="amarelo"
+ruby bd.rb lista linhas --cor="amarelo"
+ruby bd.rb lista terminals --rua="Av Parana"
 
-ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --cor="amarelo"
 
-ruby bd.rb exclusao linhas --tipo_cor="amarelo"
-
-ruby bd.rb lista linhas_terminals --terminal="2"
-ruby bd.rb lista linhas_terminals --linha="3"
+ruby bd.rb exclusao linhas --cor="amarelo"
 ```
 
 Em `exemplos.sh` há mais exemplos também.

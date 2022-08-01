@@ -14,7 +14,7 @@ def buscaLinhas(atributos)
     linhas = linhas.where(id: atributos[:id]) if atributos[:id]
 
     linhas = linhas.where(tipo: { nome: atributos[:tipo_nome]}) if atributos[:tipo_nome]
-    linhas = linhas.where(tipo: { cor: atributos[:tipo_cor]}) if atributos[:tipo_cor]
+    linhas = linhas.where(tipo: { cor: atributos[:cor]}) if atributos[:cor]
     if linhas.empty? 
         raise NenhumRegistroError.new "linha"
     end
