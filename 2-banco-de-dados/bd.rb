@@ -34,8 +34,8 @@ class BancoDeDadosCLI  < Thor
         puts " "
     end
 
-    desc "inclusao TABELA", "inclusao <tabela> { --atributo=valor }"
-    def inclusao(tabela)
+    desc "inclui TABELA", "inclui <tabela> { --atributo=valor }"
+    def inclui(tabela)
         case tabela 
             when 'linhas'
                 incluiLinha options
@@ -51,8 +51,8 @@ class BancoDeDadosCLI  < Thor
         puts " "
     end
 
-    desc "exclusao TABELA", "exclusao <tabela> { --atributo=valor }"
-    def exclusao(tabela)
+    desc "exclui TABELA", "exclui <tabela> { --atributo=valor }"
+    def exclui(tabela)
         case tabela 
             when 'linhas'
                 excluiLinha options

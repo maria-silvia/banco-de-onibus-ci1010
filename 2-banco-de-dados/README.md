@@ -21,9 +21,9 @@ ruby ./bd.rb <operação> <tabela> --atributo1="valor" --atributo2="valor"
 
 OPERAÇÕES:
 
-- inclusao
+- inclui
 - alteracao
-- exclusao
+- exclui
 - lista
 
 | TABELAS          | ATRIBUTOS POR TABELA  |
@@ -40,15 +40,15 @@ OPERAÇÕES:
 ```
 ruby bd.rb lista linhas --cor="amarelo"
 ruby bd.rb lista terminals --rua="Av Parana"
-ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --cor="amarelo"
-ruby bd.rb exclusao linhas --cor="amarelo"
+ruby bd.rb inclui linhas --nome="Paineiras" --codigo="231" --cor="amarelo"
+ruby bd.rb exclui linhas --cor="amarelo"
 ```
 
 Ao excluir linha, exclui relacao linha terminal:
 
 ```
 ruby bd.rb lista linhas_terminals --linha="Solitude"
-ruby bd.rb exclusao linhas --nome="Solitude"
+ruby bd.rb exclui linhas --nome="Solitude"
 ruby bd.rb lista linhas_terminals --linha="Solitude"
 ruby bd.rb lista linhas
 ```
@@ -58,7 +58,7 @@ Ao excluir tipo, exclui linha e exclui relacao linha terminal:
 ```
 ruby bd.rb lista linhas
 ruby bd.rb lista linhas_terminals --cor="cinza"
-ruby bd.rb exclusao tipos --cor="cinza"
+ruby bd.rb exclui tipos --cor="cinza"
 ruby bd.rb lista linhas
 ruby bd.rb lista linhas_terminals --cor="cinza"
 ```
@@ -69,7 +69,7 @@ Ao excluir terminal, exclui seu endereco e relacao linha terminal:
 ruby bd.rb lista terminals
 ruby bd.rb lista enderecos
 ruby bd.rb lista linhas_terminals --terminal="Sta Candida"
-ruby bd.rb exclusao terminals --nome="Sta Candida"
+ruby bd.rb exclui terminals --nome="Sta Candida"
 ruby bd.rb lista terminals
 ruby bd.rb lista enderecos
 ruby bd.rb lista linhas_terminals --terminal="Sta Candida"
