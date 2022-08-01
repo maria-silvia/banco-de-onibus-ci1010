@@ -10,28 +10,29 @@ def imprimeTipo(tipo)
 end
 
 def listaTipos(atributos)
-    tipos = buscaTipo(atributos)
+    begin
+        tipos = buscaTipo(atributos)
+    rescue NenhumRegistroError => e
+        puts e.message
+        return
+    rescue VariosRegistros => e
+        tipos = e.registros
+    end
+
     tipos.each do |t|
         imprimeTipo t
     end
-    rescue => e
-        puts e.message
 end
 
 # -------------------- EXCLUSAO ---------------------
 def excluiTipo(atributos)
-    tip = Tipo.where(atributos)
-    if !tip
-        puts "Registro não encontrado"
-        return
-    end
-    if tip.distinct.count > 1
-        puts "Há #{tip.distinct.count} registros com esses atributos"
-        return
-    end
-    tip = tip.first    
+    tipos = buscaTipo(atributos)
+    tip = tipos.first    
     print "Destruindo  "
     imprimeTipo tip
     tip.destroy
-    puts "Tipo destroido"
+    puts "Tipo destruido"
+    
+    rescue => e
+        puts e.message
 end

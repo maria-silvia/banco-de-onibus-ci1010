@@ -10,12 +10,18 @@ end
 
 # -------------------- LISTA ---------------------
 def listaLinhas(atributos)
-    linhas = buscaLinhas atributos
+    begin
+        linhas = buscaLinhas atributos
+    rescue NenhumRegistroError => e
+        puts e.message
+        return
+    rescue VariosRegistros => e
+        linhas = e.registros
+    end
+
     linhas.each do |l|
         imprimeLinha l
     end
-    rescue => e
-        puts e.message
 end
 
 # -------------------- INCLUSAO ---------------------
@@ -33,10 +39,6 @@ def incluiLinha(atributos)
         puts e.message
         return
     end
-    if t.many?
-        puts "Erro: Mais de um tipo encontrado com esses atributos"
-        return
-    end
 
     lin.tipo_id = t.first.id
     if lin.invalid?
@@ -51,15 +53,12 @@ end
 # -------------------- EXCLUSAO ---------------------
 def excluiLinha(atributos)
     linhas = buscaLinhas(atributos)
-    if linhas.many?
-        puts "Erro: Há #{linhas.distinct.count} registros com esses atributos"
-        return
-    end
     lin = linhas.first    
     print "Deletando  "
     imprimeLinha lin
     lin.delete
     puts "Linha deletada"
+
     rescue => e
         puts e.message
 end

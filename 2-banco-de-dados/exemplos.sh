@@ -57,7 +57,13 @@ ruby bd.rb exclusao linhas
 ruby bd.rb exclusao linhas --rua="test"
 ruby bd.rb lista linhas
 
+# echo "====== EXCLUSAO de TIPOS"
 ruby bd.rb exclusao tipos --cor="cinza"
+ruby bd.rb exclusao tipos --cor="rosa"
+ruby bd.rb exclusao tipos
+ruby bd.rb exclusao tipos --nome="Expresso"
+ruby bd.rb exclusao tipos --rua="ahn"
+ruby bd.rb lista tipos
 
 # BUGA NAO SEI PQ
 # ruby bd.rb exclusao linhas --codigo="244154"
