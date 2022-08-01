@@ -32,13 +32,18 @@ ruby bd.rb lista terminals --rua="Av Parana"
 ruby bd.rb lista terminals --numero="500"
 ruby bd.rb lista terminals --cor="vermelho"
 
+echo "====== LISTA de ENDERECOS"
 ruby bd.rb lista enderecos
 
+echo "====== LISTA de LINHAS TERMINALS"
 ruby bd.rb lista linhas_terminals
-ruby bd.rb lista linhas_terminals --terminal="2"
-ruby bd.rb lista linhas_terminals --linha="3"
-ruby bd.rb lista linhas_terminals --linha="5" --terminal="2"
-ruby bd.rb lista linhas_terminals --linha="1" --terminal="4"
+ruby bd.rb lista linhas_terminals --linha="Inter 2"
+ruby bd.rb lista linhas_terminals --terminal="Cabral"
+ruby bd.rb lista linhas_terminals --cor="amarelo"
+ruby bd.rb lista linhas_terminals --tipo="Expresso" --cor="amarelo"
+ruby bd.rb lista linhas_terminals --codigo="023"
+ruby bd.rb lista linhas_terminals --codigo="666"
+ruby bd.rb lista linhas_terminals --rua="Av Presidente" --linha="Solitude"
 
 echo "====== INCLUSAO de LINHAS"
 ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"

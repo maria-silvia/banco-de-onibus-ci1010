@@ -13,8 +13,8 @@ def buscaLinhas(atributos)
     linhas = linhas.where(codigo: atributos[:codigo]) if atributos[:codigo]
     linhas = linhas.where(id: atributos[:id]) if atributos[:id]
 
-    linhas = linhas.where(tipo: { nome: atributos[:tipo_nome]}) if atributos[:tipo_nome]
-    linhas = linhas.where(tipo: { cor: atributos[:cor]}) if atributos[:cor]
+    linhas = linhas.where('tipo.nome': atributos[:tipo]) if atributos[:tipo]
+    linhas = linhas.where('tipo.cor': atributos[:cor]) if atributos[:cor]
     if linhas.empty? 
         raise NenhumRegistroError.new "linha"
     end
@@ -41,8 +41,8 @@ def buscaTerminals(atributos)
     terminals = Terminal.includes(:endereco).all
     terminals = terminals.where(nome: atributos[:nome]) if atributos[:nome]
 
-    terminals = terminals.where(endereco: { rua: atributos[:rua]}) if atributos[:rua]
-    terminals = terminals.where(endereco: { numero: atributos[:numero]}) if atributos[:numero]
+    terminals = terminals.where('endereco.rua': atributos[:rua]) if atributos[:rua]
+    terminals = terminals.where('endereco.numero': atributos[:numero]) if atributos[:numero]
     if terminals.empty? 
         raise NenhumRegistroError.new "terminal" 
     end

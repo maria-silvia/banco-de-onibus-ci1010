@@ -26,13 +26,14 @@ OPERAÇÕES:
 - exclusao
 - lista
 
-| TABELAS          | ATRIBUTOS POR TABELA      |
-| ---------------- | ------------------------- |
-| linhas           | nome codigo tipo_nome cor |
-| tipos            | nome cor                  |
-| terminals        | nome rua numero           |
-| enderecos        | rua numero                |
-| linhas_terminals | linha terminal            |
+| TABELAS          | ATRIBUTOS POR TABELA  |
+| ---------------- | --------------------- |
+| linhas           | nome codigo tipo cor  |
+| tipos            | nome cor              |
+| terminals        | nome rua numero       |
+| enderecos        | rua numero            |
+| linhas_terminals | linha codigo cor tipo |
+| linhas_terminals | terminal rua numero   |
 
 ### Exemplos:
 

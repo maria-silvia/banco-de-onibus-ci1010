@@ -11,7 +11,10 @@ def listaEnderecos(atributos)
     if atributos.empty?()
         listaTodosEnderecos
     else
-        e = Endereco.where(atributos)
+        e = Endereco.where({
+            :rua => atributos[:rua], 
+            :numero => atributos[:numero]
+        })
         e.each do |t|
             imprimeEndereco t
         end
