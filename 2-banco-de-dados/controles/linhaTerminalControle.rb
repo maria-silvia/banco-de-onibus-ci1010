@@ -99,6 +99,8 @@ def listaTerminalPorLinha(lin)
     lin.terminals.each do |t|
         puts "    #{t.nome} "
     end
+    puts " nenhum terminal" if lin.terminals.empty?
+ 
 end
 
 # para cada terminal, as linhas que passam nele
@@ -112,4 +114,6 @@ def listaLinhaPorTerminal(term)
     term.linhas.each do |l|
         puts "    #{l.nome} "
     end
+    puts " nenhuma linha" if term.linhas.empty?
+ 
 end
