@@ -17,7 +17,26 @@ terminais.each do |terminal|
   terminal.linhas << l1
 end
 
+l2 = Linha.find_by_nome("Petrópolis")
+t2 = Terminal.find_by_nome("Capao da Imbuia")
+l2.terminals << t2
+t2.linhas << l2
+
 l2 = Linha.find_by_nome("Interbairros III")
 t2 = Terminal.find_by_nome("Sta Candida")
+l2.terminals << t2
+t2.linhas << l2
+
+l2 = Linha.find_by_nome("Interbairros V")
+t2 = Terminal.find_by_nome("Capao da Imbuia")
+l2.terminals << t2
+t2.linhas << l2
+
+l2 = Linha.find_by_nome("Sta Candida / Capao Raso")
+t2 = Terminal.find_by_nome("Sta Candida")
+l2.terminals << t2
+t2.linhas << l2
+
+t2 = Terminal.find_by_nome("Boa Vista")
 l2.terminals << t2
 t2.linhas << l2

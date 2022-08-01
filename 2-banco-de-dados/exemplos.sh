@@ -92,9 +92,9 @@ ruby bd.rb exclui tipos --cor="cinza"
 ruby bd.rb lista linhas
 ruby bd.rb lista linhas_terminals --cor="cinza"
 
+ruby bd.rb exclui tipos --nome="Interbairros"
 ruby bd.rb exclui tipos --cor="rosa"
 ruby bd.rb exclui tipos
-ruby bd.rb exclui tipos --nome="Expresso"
 ruby bd.rb exclui tipos --rua="ahn"
 ruby bd.rb lista tipos
 

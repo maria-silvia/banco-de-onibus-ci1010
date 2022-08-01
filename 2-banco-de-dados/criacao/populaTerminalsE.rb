@@ -7,8 +7,8 @@ require 'endereco.rb'
 lista = 
   [
    {:nome => "Cabral", :rua => "Av Parana", :numero => "500"        },
-   {:nome => "Capão da Imbuia", :rua => "Av Presidente", :numero => "987"     },
-   {:nome => "Sta Candida", :rua => "Av Parana", :numero => "1"        },
+   {:nome => "Capao da Imbuia", :rua => "Av Presidente", :numero => "987"     },
+   {:nome => "Sta Candida", :rua => "Av Parana", :numero => "0"        },
    {:nome => "Boa Vista", :rua => "Av Parana", :numero => "1000"        },
   ]
 

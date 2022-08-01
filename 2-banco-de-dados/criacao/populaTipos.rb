@@ -8,7 +8,7 @@ lista =
    {:nome => "Ligeirinho", :cor => "cinza"     },
    {:nome => "Interbairros", :cor => "verde"        },
    {:nome => "Convencional", :cor => "amarelo"        },
-   {:nome => "Turismo", :cor => "verde"        },
+   {:nome => "Jardineira", :cor => "verde"        },
   ]
 
 lista.each do |e|
