@@ -44,7 +44,7 @@ class BancoDeDadosCLI  < Thor
             when 'terminals'
                 incluiTerminalE options
             when 'enderecos'
-                puts "Inserir com Terminal"
+                puts "Inserir pelo terminals"
             when 'linhas_terminals'
                 incluiLinhasTerminals options
         end
@@ -59,8 +59,11 @@ class BancoDeDadosCLI  < Thor
             when 'tipos'
                 excluiTipo options
             when 'terminals'
+                excluiTerminal options
             when 'enderecos'
+                puts "Excluir pelo terminals"
             when 'linhas_terminals'
+                excluiLinhasTerminals options
         end
         puts " "
     end

@@ -38,3 +38,16 @@ def incluiTerminalE(att)
         imprimeTerminalE novo
     end
 end
+
+# -------------------- EXCLUSAO ---------------------
+def excluiTerminal(atributos)
+    terminais = buscaTerminals(atributos)
+    t = terminais.first    
+    print "Destruindo  "
+    imprimeTerminalE t
+    t.destroy
+    puts "Terminal destruido"
+
+    rescue => e
+        puts e.message
+end

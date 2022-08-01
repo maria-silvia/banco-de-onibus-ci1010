@@ -90,4 +90,14 @@ ruby bd.rb exclusao tipos --nome="Expresso"
 ruby bd.rb exclusao tipos --rua="ahn"
 ruby bd.rb lista tipos
 
+echo "====== EXCLUSAO de TERMINALS"
+ruby bd.rb lista terminals
+ruby bd.rb lista enderecos
+ruby bd.rb exclusao terminals --nome="Sta Candida"
+ruby bd.rb exclusao terminals --rua="Av Parana"
+ruby bd.rb exclusao terminals --cor="rosa"
+ruby bd.rb exclusao terminals
+ruby bd.rb lista terminals
+ruby bd.rb lista enderecos
+
 set +x
