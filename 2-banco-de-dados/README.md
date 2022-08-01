@@ -30,8 +30,8 @@ OPERAÇÕES:
 | ---------------- | ------------------------------ |
 | linhas           | nome codigo tipo_nome tipo_cor |
 | tipos            | nome cor                       |
-| terminals        | nome endereco                  |
-| enderecos        | rua numero                     |
+| terminals        | nome rua numero           |
+| enderecos        | rua numero                |
 | linhas_terminals | linha terminal                 |
 
 ### Exemplos:

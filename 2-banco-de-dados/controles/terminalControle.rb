@@ -1,3 +1,4 @@
+require './utils.rb'
 $:.push 'modelos/'
 require 'terminal.rb'
 require 'endereco.rb'
@@ -8,18 +9,16 @@ end
 
 # -------------------- LISTA ---------------------
 def listaTerminals(atributos)
-    if atributos.empty?()
-        listaTodosTerminals
-    else
-        ende = Terminal.where(atributos)
-        ende.each do |t|
-            imprimeTerminalE t
-        end
+    begin
+        registros = buscaTerminals atributos
+    rescue NenhumRegistroError => e
+        puts e.message
+        return
+    rescue VariosRegistros => e
+        registros = e.registros
     end
-end
-def listaTodosTerminals
-    puts "Listando todos os Terminais de Ônibus:"
-    Terminal.all.each do |t|
-        imprimeTerminalE t
+
+    registros.each do |r|
+        imprimeTerminalE r
     end
 end

@@ -24,11 +24,13 @@ ruby bd.rb lista tipos --nome="Convencional"
 ruby bd.rb lista tipos --nome="Convencional" --cor="vermelho"
 ruby bd.rb lista tipos --rua="teste"
 
+echo "====== LISTA de TERMINALS"
 ruby bd.rb lista terminals
 ruby bd.rb lista terminals --nome="Boa Vista"
 ruby bd.rb lista terminals --nome="centro"
-ruby bd.rb lista terminals --endereco="3"
-ruby bd.rb lista terminals --endereco="300"
+ruby bd.rb lista terminals --rua="Av Parana"
+ruby bd.rb lista terminals --numero="500"
+ruby bd.rb lista terminals --cor="vermelho"
 
 ruby bd.rb lista enderecos
 

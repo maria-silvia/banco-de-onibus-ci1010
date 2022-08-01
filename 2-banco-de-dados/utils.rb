@@ -37,6 +37,21 @@ def buscaTipo(atributos)
     return tipos
 end
 
+def buscaTerminals(atributos) 
+    terminals = Terminal.includes(:endereco).all
+    terminals = terminals.where(nome: atributos[:nome]) if atributos[:nome]
+
+    terminals = terminals.where(endereco: { rua: atributos[:rua]}) if atributos[:rua]
+    terminals = terminals.where(endereco: { numero: atributos[:numero]}) if atributos[:numero]
+    if terminals.empty? 
+        raise NenhumRegistroError.new "terminal" 
+    end
+    if terminals.many?
+        raise VariosRegistros.new terminals
+    end
+    return terminals
+end
+
 class NenhumRegistroError < StandardError
     attr_reader :entidade
     def initialize(entidade)
