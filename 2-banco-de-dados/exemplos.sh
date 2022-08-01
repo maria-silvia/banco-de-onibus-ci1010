@@ -75,15 +75,23 @@ ruby bd.rb inclusao linhas_terminals --terminal="Cabral"
 ruby bd.rb lista linhas_terminals
 
 echo "====== EXCLUSAO de LINHAS"
+ruby bd.rb lista linhas_terminals --linha="Solitude"
 ruby bd.rb exclusao linhas --nome="Solitude"
+ruby bd.rb lista linhas_terminals --linha="Solitude"
+ruby bd.rb lista linhas
+
 ruby bd.rb exclusao linhas --cor="amarelo"
 ruby bd.rb exclusao linhas --nome="recolhe"
 ruby bd.rb exclusao linhas
 ruby bd.rb exclusao linhas --rua="test"
-ruby bd.rb lista linhas
 
 echo "====== EXCLUSAO de TIPOS"
+ruby bd.rb lista linhas
+ruby bd.rb lista linhas_terminals --cor="cinza"
 ruby bd.rb exclusao tipos --cor="cinza"
+ruby bd.rb lista linhas
+ruby bd.rb lista linhas_terminals --cor="cinza"
+
 ruby bd.rb exclusao tipos --cor="rosa"
 ruby bd.rb exclusao tipos
 ruby bd.rb exclusao tipos --nome="Expresso"
@@ -93,11 +101,15 @@ ruby bd.rb lista tipos
 echo "====== EXCLUSAO de TERMINALS"
 ruby bd.rb lista terminals
 ruby bd.rb lista enderecos
+ruby bd.rb lista linhas_terminals --terminal="Sta Candida"
 ruby bd.rb exclusao terminals --nome="Sta Candida"
-ruby bd.rb exclusao terminals --rua="Av Parana"
-ruby bd.rb exclusao terminals --cor="rosa"
-ruby bd.rb exclusao terminals
 ruby bd.rb lista terminals
 ruby bd.rb lista enderecos
+ruby bd.rb lista linhas_terminals --terminal="Sta Candida"
+
+ruby bd.rb exclusao terminals --rua="Av Parana"
+ruby bd.rb exclusao terminals --cor="rosa"
+ruby bd.rb lista terminals
+
 
 set +x
