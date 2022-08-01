@@ -5,5 +5,6 @@ ActiveRecord::Base.establish_connection :adapter => "sqlite3",
 
 class Endereco < ActiveRecord::Base; 
     has_one :terminal
+    validates :rua, :numero, :presence => true
 end
 

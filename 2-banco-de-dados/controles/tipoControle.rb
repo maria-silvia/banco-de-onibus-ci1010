@@ -36,3 +36,17 @@ def excluiTipo(atributos)
     rescue => e
         puts e.message
 end
+
+# -------------------- INCLUSAO ---------------------
+def incluiTipo(atributos)
+    novo = Tipo.new()
+    novo.nome = atributos[:nome]
+    novo.cor = atributos[:cor]
+    if novo.invalid?
+        printErro novo
+    else
+        novo.save
+        puts("Registro criado com sucesso")
+        imprimeTipo novo
+    end
+end

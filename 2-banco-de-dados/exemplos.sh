@@ -32,11 +32,7 @@ ruby bd.rb lista terminals --rua="Av Parana"
 ruby bd.rb lista terminals --numero="500"
 ruby bd.rb lista terminals --cor="vermelho"
 
-echo "====== LISTA de ENDERECOS"
-ruby bd.rb lista enderecos
-
 echo "====== LISTA de LINHAS TERMINALS"
-ruby bd.rb lista linhas_terminals
 ruby bd.rb lista linhas_terminals --linha="Inter 2"
 ruby bd.rb lista linhas_terminals --terminal="Cabral"
 ruby bd.rb lista linhas_terminals --cor="amarelo"
@@ -46,15 +42,37 @@ ruby bd.rb lista linhas_terminals --codigo="666"
 ruby bd.rb lista linhas_terminals --rua="Av Presidente" --linha="Solitude"
 
 echo "====== INCLUSAO de LINHAS"
-ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="amarelo"
-ruby bd.rb inclusao linhas --nome="Centenario" --codigo="739" --tipo_nome="Expresso"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --cor="amarelo"
+ruby bd.rb inclusao linhas --nome="Centenario" --codigo="739" --tipo="Expresso"
 ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231"
-ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_cor="verde" --tipo_nome="Convencional"
-ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo_nome="mini"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --cor="verde" --tipo="Convencional"
+ruby bd.rb inclusao linhas --nome="Paineiras" --codigo="231" --tipo="mini"
 ruby bd.rb inclusao linhas --codigo="231"
 ruby bd.rb inclusao linhas --codigo="2"
 ruby bd.rb inclusao linhas --cor="amarelo"
 ruby bd.rb lista linhas
+
+echo "====== INCLUSAO de TERMINAL"
+ruby bd.rb inclusao terminals --nome="Hauer" --rua="Marechal Floriano" --numero="0"
+ruby bd.rb inclusao terminals
+ruby bd.rb inclusao terminals --rua="Marechal Floriano" --numero="0"
+ruby bd.rb inclusao terminals --nome="Hauer" --rua="Marechal Floriano"
+ruby bd.rb inclusao terminals --nome="Hauer" --numero="0"
+ruby bd.rb inclusao terminals --nome="Hauer" --numero="0" --cor="verde"
+ruby bd.rb lista terminals
+
+echo "====== INCLUSAO de ENDERECOS"
+ruby bd.rb inclusao enderecos
+ruby bd.rb inclusao enderecos --rua="jkh" --numero="78"
+ruby bd.rb lista enderecos
+
+echo "====== INCLUSAO de LINHAS TERMINALS"
+ruby bd.rb inclusao linhas_terminals
+ruby bd.rb inclusao linhas_terminals --terminal="Hauer" --linha="Interbairros III"
+ruby bd.rb inclusao linhas_terminals --terminal="Cabral" --cor="amarelo"
+ruby bd.rb inclusao linhas_terminals --linha="Petropolis"
+ruby bd.rb inclusao linhas_terminals --terminal="Cabral"
+ruby bd.rb lista linhas_terminals
 
 echo "====== EXCLUSAO de LINHAS"
 ruby bd.rb exclusao linhas --nome="Solitude"
@@ -64,7 +82,7 @@ ruby bd.rb exclusao linhas
 ruby bd.rb exclusao linhas --rua="test"
 ruby bd.rb lista linhas
 
-# echo "====== EXCLUSAO de TIPOS"
+echo "====== EXCLUSAO de TIPOS"
 ruby bd.rb exclusao tipos --cor="cinza"
 ruby bd.rb exclusao tipos --cor="rosa"
 ruby bd.rb exclusao tipos
@@ -72,6 +90,4 @@ ruby bd.rb exclusao tipos --nome="Expresso"
 ruby bd.rb exclusao tipos --rua="ahn"
 ruby bd.rb lista tipos
 
-# BUGA NAO SEI PQ
-# ruby bd.rb exclusao linhas --codigo="244154"
 set +x

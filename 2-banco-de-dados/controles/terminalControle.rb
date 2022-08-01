@@ -22,3 +22,19 @@ def listaTerminals(atributos)
         imprimeTerminalE r
     end
 end
+
+# -------------------- INCLUSAO ---------------------
+def incluiTerminalE(att)
+    novo = Terminal.new()
+    novo.nome = att[:nome]
+    novo_e = Endereco.new({:rua => att[:rua], :numero => att[:numero]})
+    novo.endereco = novo_e
+    if novo.invalid? || novo_e.invalid?
+        printErro novo_e
+        printErro novo
+    else
+        novo.save
+        puts("Registro criado com sucesso")
+        imprimeTerminalE novo
+    end
+end

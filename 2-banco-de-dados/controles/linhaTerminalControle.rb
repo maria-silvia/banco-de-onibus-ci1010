@@ -26,9 +26,7 @@ def listaLinhasTerminals(att)
             #     print "  #{t.nome} "
             # end
         end
-    end
-    
-    if (att.keys & terminals_keys).any?
+    elsif (att.keys & terminals_keys).any?
         # busca por terminals
         terms = Terminal.includes(:endereco).joins(:linhas).distinct
         terms = terms.where(nome: att[:terminal]) if att[:terminal]
@@ -45,8 +43,50 @@ def listaLinhasTerminals(att)
                 puts "  #{l.nome} "
             end
         end
+    else
+        listaTudoPorLinha
+        puts ""
+        listaTudoPorTerminal
     end
 end
+
+# -------------------- INCLUSAO ---------------------
+def incluiLinhasTerminals(atributos)
+    begin
+        terminal_att = atributos.dup
+        terminal_att[:nome] = atributos[:terminal]
+        query = buscaTerminals(terminal_att) 
+    rescue NenhumRegistroError => e
+    rescue VariosRegistros => e
+        puts e.message
+        return
+    end
+    terminal = query.first        
+
+    begin
+        linha_att = atributos.dup
+        linha_att[:nome] = atributos[:linha]
+        query = buscaLinhas(linha_att) 
+    rescue NenhumRegistroError => e
+    rescue VariosRegistros => e
+        puts e.message
+        return
+    end    
+    linha = query.first        
+
+    linha.terminals << terminal
+    terminal.linhas << linha
+    
+    puts("Relacao criada com sucesso")
+    puts "#{terminal.nome} <=> #{linha.nome}"
+end
+
+
+
+
+
+
+
 
 # para cada linha, os terminais por quais passa
 def listaTudoPorLinha
