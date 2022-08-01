@@ -13,8 +13,8 @@ ruby bd.rb lista linhas --id="700"
 ruby bd.rb lista linhas --rua="testando"
 ruby bd.rb lista linhas --cor="amarelo"
 ruby bd.rb lista linhas --cor="branco"
-ruby bd.rb lista linhas --tipo_nome="Interbairros"
-ruby bd.rb lista linhas --tipo_nome="Interbairros" --nome="Fanny"
+ruby bd.rb lista linhas --tipo="Interbairros"
+ruby bd.rb lista linhas --tipo="Interbairros" --nome="Fanny"
 
 echo "====== LISTA de TIPOS"
 ruby bd.rb lista tipos
