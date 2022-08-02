@@ -26,6 +26,8 @@ OPERAÇÕES:
 - exclui
 - lista
 
+ATRIBUTOS:
+
 | TABELAS          | ATRIBUTOS POR TABELA  |
 | ---------------- | --------------------- |
 | linhas           | nome codigo tipo cor  |
@@ -35,14 +37,9 @@ OPERAÇÕES:
 | linhas_terminals | linha codigo cor tipo |
 | linhas_terminals | terminal rua numero   |
 
-### Exemplos:
+Para todas as tabels há o atributo "id" também. No comando de alteracao deve ser passado para selecionar o registro.
 
-```
-ruby bd.rb lista linhas --cor="amarelo"
-ruby bd.rb lista terminals --rua="Av Parana"
-ruby bd.rb inclui linhas --nome="Paineiras" --codigo="231" --cor="amarelo"
-ruby bd.rb exclui linhas --cor="amarelo"
-```
+### Exemplos:
 
 Ao excluir linha, exclui relacao linha terminal:
 
@@ -73,6 +70,16 @@ ruby bd.rb exclui terminals --nome="Sta Candida"
 ruby bd.rb lista terminals
 ruby bd.rb lista enderecos
 ruby bd.rb lista linhas_terminals --terminal="Sta Candida"
+```
+
+outros:
+
+```
+ruby bd.rb lista linhas --cor="amarelo"
+ruby bd.rb lista terminals --rua="Av Parana"
+ruby bd.rb inclui linhas --nome="Paineiras" --codigo="231" --cor="amarelo"
+ruby bd.rb altera linhas --id="13" --nome="V. Rex"
+
 ```
 
 Em `exemplos.sh` há mais exemplos também.

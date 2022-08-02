@@ -25,7 +25,7 @@ def buscaLinhas(atributos)
     return linhas
 end
 
-def buscaTipo(atributos) 
+def buscaTipos(atributos) 
     tipos = Tipo.all
     tipos = tipos.where(nome: atributos[:nome]) if atributos[:nome]
     tipos = tipos.where(cor: atributos[:cor]) if atributos[:cor]

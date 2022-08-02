@@ -11,7 +11,7 @@ end
 
 def listaTipos(atributos)
     begin
-        tipos = buscaTipo(atributos)
+        tipos = buscaTipos(atributos)
     rescue NenhumRegistroError => e
         puts e.message
         return
@@ -26,7 +26,7 @@ end
 
 # -------------------- EXCLUSAO ---------------------
 def excluiTipo(atributos)
-    tipos = buscaTipo(atributos)
+    tipos = buscaTipos(atributos)
     tip = tipos.first    
     print "Destruindo  "
     imprimeTipo tip

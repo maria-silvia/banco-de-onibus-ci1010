@@ -68,6 +68,22 @@ class BancoDeDadosCLI  < Thor
         puts " "
     end
 
+    desc "altera TABELA", "altera <tabela> { --atributo=valor }"
+    def altera(tabela)
+        case tabela 
+            when 'linhas'
+                alteraLinha options
+            when 'tipos'
+                alteraTipo options
+            when 'terminals'
+                alteraTerminal options
+            when 'enderecos'
+                puts "Alterar pelo terminals"
+            when 'linhas_terminals'
+                alteraLinhasTerminals options
+        end
+        puts " "
+    end
 end
 
 BancoDeDadosCLI.start(ARGV)

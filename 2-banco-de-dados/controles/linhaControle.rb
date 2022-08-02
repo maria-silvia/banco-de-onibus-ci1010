@@ -31,7 +31,7 @@ def incluiLinha(atributos)
     lin.codigo = atributos[:codigo]
     
     begin
-        t = buscaTipo({
+        t = buscaTipos({
             :nome => atributos[:tipo], 
             :cor => atributos[:cor]
         })
@@ -60,5 +60,34 @@ def excluiLinha(atributos)
     puts "Linha deletada"
 
     rescue => e
+        puts e.message
+end
+
+# -------------------- ALTERACAO ---------------------
+def alteraLinha(atributos)
+    if (!atributos[:id])
+        puts "Por favor passar id do registro a ser alterado"
+        return
+    end
+    l = Linha.find(atributos[:id])
+    if (atributos[:tipo] || atributos[:cor])
+        begin
+            novo_tipo = buscaTipos({
+                :nome => atributos[:tipo], 
+                :cor => atributos[:cor]
+            })
+        rescue => e
+            puts e.message
+            return
+        else
+            l.tipo_id = novo_tipo.first.id
+        end
+    end
+    l.nome = atributos[:nome] if atributos[:nome]
+    l.save
+    print "Registro atualizado: "
+    imprimeLinha l
+
+    rescue ActiveRecord::RecordNotFound => e
         puts e.message
 end
