@@ -50,3 +50,21 @@ def incluiTipo(atributos)
         imprimeTipo novo
     end
 end
+
+# -------------------- ALTERACAO ---------------------
+def alteraTipo(atributos)
+    if (!atributos[:id])
+        puts "Por favor passar id do registro a ser alterado"
+        return
+    end
+
+    l = Tipo.find(atributos[:id])
+    l.nome = atributos[:nome] if atributos[:nome]
+    l.cor = atributos[:cor] if atributos[:cor]
+    l.save
+    print "Registro atualizado: "
+    imprimeTipo l
+
+    rescue => e
+        puts e.message
+end

@@ -111,11 +111,12 @@ ruby bd.rb exclui terminals --rua="Av Parana"
 ruby bd.rb exclui terminals --cor="rosa"
 ruby bd.rb lista terminals
 
-echo "====== ALTERACAO de LINHAS"
-ruby bd.rb altera linhas --id="13" --nome="V. Rex"
-ruby bd.rb altera linhas --id="12" --tipo="Expresso"
-ruby bd.rb altera linhas --id="1" --cor="amarelo"
-ruby bd.rb altera linhas --id="10000" --cor="amarelo"
-ruby bd.rb altera linhas --id="2" --cor="rosa"
+echo "====== ALTERACAO de TIPOS"
+ruby bd.rb lista tipos
+ruby bd.rb altera tipos
+ruby bd.rb altera tipos --id="1" --cor="vermelhao"
+ruby bd.rb altera tipos --id="1000" --cor="rosa"
+ruby bd.rb altera tipos --id="5" --nome="Dois andares"
+ruby bd.rb lista tipos
 
 set +x
