@@ -51,3 +51,26 @@ def excluiTerminal(atributos)
     rescue => e
         puts e.message
 end
+
+# -------------------- ALTERACAO ---------------------
+def alteraTerminal(atributos)
+    if (!atributos[:id])
+        puts "Por favor passar id do registro a ser alterado"
+        return
+    end
+
+    t = Terminal.find(atributos[:id])
+    t.nome = atributos[:nome] if atributos[:nome]
+    if (atributos[:rua] || atributos[:numero])
+        e = Endereco.find(t.endereco_id)
+        e.rua = atributos[:rua] if atributos[:rua]
+        e.numero = atributos[:numero] if atributos[:numero]
+        e.save
+    end
+    t.save
+    print "Registro atualizado: "
+    imprimeTerminalE t
+
+    rescue => e
+        puts e.message
+end
