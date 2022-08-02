@@ -71,23 +71,17 @@ def alteraLinha(atributos)
     end
     l = Linha.find(atributos[:id])
     if (atributos[:tipo] || atributos[:cor])
-        begin
-            novo_tipo = buscaTipos({
-                :nome => atributos[:tipo], 
-                :cor => atributos[:cor]
-            })
-        rescue => e
-            puts e.message
-            return
-        else
-            l.tipo_id = novo_tipo.first.id
-        end
+        novo_tipo = buscaTipos({
+            :nome => atributos[:tipo], 
+            :cor => atributos[:cor]
+        })
+        l.tipo_id = novo_tipo.first.id
     end
     l.nome = atributos[:nome] if atributos[:nome]
     l.save
     print "Registro atualizado: "
     imprimeLinha l
 
-    rescue ActiveRecord::RecordNotFound => e
+    rescue => e
         puts e.message
 end
