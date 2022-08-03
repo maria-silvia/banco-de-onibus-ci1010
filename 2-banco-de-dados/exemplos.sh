@@ -111,6 +111,16 @@ ruby bd.rb exclui terminals --rua="Av Parana"
 ruby bd.rb exclui terminals --cor="rosa"
 ruby bd.rb lista terminals
 
+echo "====== EXCLUSAO de LINHAS TERMINALS"
+ruby bd.rb lista linhas_terminals
+ruby bd.rb exclui linhas_terminals --linha="11" --terminal="1"
+ruby bd.rb exclui linhas_terminals --linha="1" --terminal="2"
+ruby bd.rb exclui linhas_terminals --terminal="2"
+ruby bd.rb exclui linhas_terminals --linha="1"
+ruby bd.rb exclui linhas_terminals
+ruby bd.rb exclui linhas_terminals --linha="1000" --terminal="2"
+ruby bd.rb exclui linhas_terminals --linha="2" --terminal="3"
+ruby bd.rb lista linhas_terminals
 
 echo "====== ALTERACAO de LINHAS"
 ruby bd.rb lista linhas

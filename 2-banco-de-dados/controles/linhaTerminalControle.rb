@@ -73,42 +73,23 @@ def incluiLinhasTerminals(atributos)
     terminal.linhas << linha
     
     puts("Relacao criada com sucesso")
-    puts "#{terminal.nome} <=> #{linha.nome}"
+    puts "Terminal #{terminal.nome} <=> Linha #{linha.nome}"
 end
 
-# -------------------- ALTERACAO ---------------------
-def alteraLinhasTerminals(atributos)
-    if (!atributos[:id])
-        puts "Por favor passar id do registro a ser alterado"
-        return
-    end
 
-    l = Tipo.find(atributos[:id])
-    l.nome = atributos[:nome] if atributos[:nome]
-    l.cor = atributos[:cor] if atributos[:cor]
-    l.save
-    print "Registro atualizado: "
-    imprimeTipo l
-
+# -------------------- EXCLUSAO ---------------------
+def excluiLinhasTerminals(atributos)
+    linha_id = atributos[:linha]
+    terminal_id = atributos[:terminal]
+    linha = Linha.find(linha_id)
+    terminal = linha.terminals.find(terminal_id)
+    print "Deletando  "
+    puts "Terminal #{terminal.nome} <=> Linha #{linha.nome}"
+    linha.terminals.delete(terminal)
+    puts "Relacao deletada"
     rescue => e
         puts e.message
 end
-
-# # -------------------- EXCLUSAO ---------------------
-# def excluiLinha(atributos)
-# ?????????????????
-#     linhas = buscaLinhas(atributos)
-#     lin = linhas.first    
-
-#     print "Deletando  "
-#     imprimeLinha lin
-#     lin.delete
-#     puts "Linha deletada"
-
-#     rescue => e
-#         puts e.message
-
-# end
 
 
 
