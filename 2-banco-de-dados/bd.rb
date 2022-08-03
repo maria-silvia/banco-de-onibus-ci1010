@@ -80,7 +80,7 @@ class BancoDeDadosCLI  < Thor
             when 'enderecos'
                 puts "Alterar pelo terminals"
             when 'linhas_terminals'
-                alteraLinhasTerminals options
+                puts "Exclua a relacao e crie outra"
         end
         puts " "
     end

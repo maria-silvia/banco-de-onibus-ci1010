@@ -28,14 +28,14 @@ OPERAÇÕES:
 
 ATRIBUTOS:
 
-| TABELAS          | ATRIBUTOS POR TABELA  |
-| ---------------- | --------------------- |
-| linhas           | nome codigo tipo cor  |
-| tipos            | nome cor              |
-| terminals        | nome rua numero       |
-| enderecos        | rua numero            |
-| linhas_terminals | linha codigo cor tipo |
-| linhas_terminals | terminal rua numero   |
+| TABELAS          | ATRIBUTOS POR TABELA       |
+| ---------------- | -------------------------- |
+| linhas           | nome codigo tipo(nome) cor |
+| tipos            | nome cor                   |
+| terminals        | nome rua numero            |
+| enderecos        | rua numero                 |
+| linhas_terminals | linha(nome) codigo         |
+| linhas_terminals | terminal(nome) rua numero  |
 
 Para todas as tabels há o atributo "id" também. No comando de alteracao deve ser passado para selecionar o registro.
 

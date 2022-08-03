@@ -9,7 +9,7 @@ def listaLinhasTerminals(att)
     terminals_keys = %w[terminal rua numero]
     
     if (att.keys & linhas_keys).any?
-        # busca por linhas
+        # busca a partir de linhas
         linhas = Linha.includes(:tipo).joins(:terminals).distinct
         linhas = linhas.where(nome: att[:linha]) if att[:linha]
         linhas = linhas.where(codigo: att[:codigo]) if att[:codigo]
@@ -21,13 +21,12 @@ def listaLinhasTerminals(att)
             puts "Registro nao encontrado"
         end
         linhas.each do |l|
-            puts "Linha #{l.nome} passa em Terminal #{l.terminals.first.nome}  "
-            # l.terminals.each do |t|
-            #     print "  #{t.nome} "
-            # end
+            t = l.terminals.first
+            puts "Linha #{l.nome} (#{l.id}) passa em Terminal #{t.nome} (#{t.id})  "
         end
+
     elsif (att.keys & terminals_keys).any?
-        # busca por terminals
+        # busca a partir de terminals
         terms = Terminal.includes(:endereco).joins(:linhas).distinct
         terms = terms.where(nome: att[:terminal]) if att[:terminal]
         terms = terms.where('endereco.rua': att[:rua]) if att[:rua]
@@ -38,14 +37,12 @@ def listaLinhasTerminals(att)
             puts "Registro nao encontrado"
         end
         terms.each do |t|
-            puts "Terminal #{t.nome} tem linhas:"
+            puts "Terminal #{t.nome} (#{t.id}) tem linhas:"
             t.linhas.each do |l|
-                puts "  #{l.nome} "
+                puts "  #{l.nome} (#{l.id})"
             end
         end
     else
-        listaTudoPorLinha
-        puts ""
         listaTudoPorTerminal
     end
 end
@@ -56,8 +53,7 @@ def incluiLinhasTerminals(atributos)
         terminal_att = atributos.dup
         terminal_att[:nome] = atributos[:terminal]
         query = buscaTerminals(terminal_att) 
-    rescue NenhumRegistroError => e
-    rescue VariosRegistros => e
+    rescue => e
         puts e.message
         return
     end
@@ -67,8 +63,7 @@ def incluiLinhasTerminals(atributos)
         linha_att = atributos.dup
         linha_att[:nome] = atributos[:linha]
         query = buscaLinhas(linha_att) 
-    rescue NenhumRegistroError => e
-    rescue VariosRegistros => e
+    rescue => e
         puts e.message
         return
     end    
@@ -81,26 +76,62 @@ def incluiLinhasTerminals(atributos)
     puts "#{terminal.nome} <=> #{linha.nome}"
 end
 
-
-
-
-
-
-
-
-# para cada linha, os terminais por quais passa
-def listaTudoPorLinha
-    Linha.all.each do |l|
-        listaTerminalPorLinha l
+# -------------------- ALTERACAO ---------------------
+def alteraLinhasTerminals(atributos)
+    if (!atributos[:id])
+        puts "Por favor passar id do registro a ser alterado"
+        return
     end
+
+    l = Tipo.find(atributos[:id])
+    l.nome = atributos[:nome] if atributos[:nome]
+    l.cor = atributos[:cor] if atributos[:cor]
+    l.save
+    print "Registro atualizado: "
+    imprimeTipo l
+
+    rescue => e
+        puts e.message
 end
+
+# # -------------------- EXCLUSAO ---------------------
+# def excluiLinha(atributos)
+# ?????????????????
+#     linhas = buscaLinhas(atributos)
+#     lin = linhas.first    
+
+#     print "Deletando  "
+#     imprimeLinha lin
+#     lin.delete
+#     puts "Linha deletada"
+
+#     rescue => e
+#         puts e.message
+
+# end
+
+
+
+
+
+
+
+
+
+
 def listaTerminalPorLinha(lin)
-    puts "Linha #{lin.nome} passa em "
+    puts "Linha #{lin.nome} (#{lin.id}) passa em "
     lin.terminals.each do |t|
-        puts "    #{t.nome} "
+        puts "    #{t.nome}  (#{term.id})"
     end
     puts " nenhum terminal" if lin.terminals.empty?
- 
+end
+def listaLinhaPorTerminal(term)
+    puts "No Terminal #{term.nome} (#{term.id}) passam as linhas"
+    term.linhas.each do |l|
+        puts "    #{l.nome} (#{l.id})"
+    end
+    puts " nenhuma linha" if term.linhas.empty?
 end
 
 # para cada terminal, as linhas que passam nele
@@ -109,11 +140,9 @@ def listaTudoPorTerminal
         listaLinhaPorTerminal term
     end
 end    
-def listaLinhaPorTerminal(term)
-    puts "Em Terminal #{term.nome} passam as linhas"
-    term.linhas.each do |l|
-        puts "    #{l.nome} "
+# para cada linha, os terminais por quais passa
+def listaTudoPorLinha
+    Linha.all.each do |l|
+        listaTerminalPorLinha l
     end
-    puts " nenhuma linha" if term.linhas.empty?
- 
 end
