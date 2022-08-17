@@ -1,8 +1,6 @@
-# Banco de Dados usando ActiveRecord
+# banco-de-onibus - Banco de Dados usando Active Record
 
-TP2 de CI1010  
-Maria Sílvia Ribeiro Ruy (msrr18)  
-GRR20182587
+T2 de CI1010 Programação Web
 
 Este trabalho tem como tema o transporte público de Curitiba.
 O banco armazena dados das linhas de ônibus, tipos de ônibus, terminais e endereço dos terminais.
